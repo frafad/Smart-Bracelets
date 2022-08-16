@@ -32,6 +32,7 @@ implementation {
   
   //Interfaces to access package fields
   App.Packet -> AMSenderC;
+  App.AMPacket -> AMSenderC;
  
   //Timer interface
   App.PairingTimer -> PairingTimer;

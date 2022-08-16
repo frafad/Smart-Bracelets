@@ -10,6 +10,7 @@ module SmartBraceletsC {
     //interfaces for communication
     interface SplitControl as AMControl;
 	interface Packet;
+    interface AMPacket;
     interface AMSend;
     interface Receive;
 
@@ -54,7 +55,7 @@ module SmartBraceletsC {
     event void Boot.booted() {
         dbg("boot","Application booted.\n");
 
-        if(TOS_NODE_ID % 2 = 0){
+        if(TOS_NODE_ID % 2 == 0){
             strcpy(key, "sup3r_s3cret-addr3s0");
             dbg("boot","Assigned key %s to node %d.\n",key, TOS_NODE_ID);
         }
@@ -96,7 +97,7 @@ module SmartBraceletsC {
 		    }
 
             msg->msg_type = PAIRING;
-            msg->data = key;
+            strcpy(msg->data, key);
 
             if (call AMSend.send(AM_BROADCAST_ADDR, &packet, sizeof(my_msg_t)) == SUCCESS) {
                 dbg("radio_send", "Mote %d sending PAIRING packet", TOS_NODE_ID);
@@ -133,7 +134,7 @@ module SmartBraceletsC {
 
     //********************* Receive interface *********************//
 
-    event message_t* Receive.receive(message_t* buf,void* payload, uint8_t len) {
+    event message_t* Receive.receive(message_t* buf, void* payload, uint8_t len) {
 
         if (len != sizeof(my_msg_t)) {return buf;}
         else {
@@ -142,8 +143,8 @@ module SmartBraceletsC {
 
             if (msg->msg_type == PAIRING) {
                 dbg("radio_rec", "Mote %d received packet at time %s with key %s\n", TOS_NODE_ID, sim_time_string(), msg->data);
-                if (strcmp(msg->data, key) == 0) {
-                    paired_device = call AMPacket.source(bufPtr);
+                if (strcmp((uint8_t*)msg->data, key) == 0) {
+                    paired_device = call AMPacket.source(buf);
                     dbg("radio_rec", "Mote %d has the same key as mote %d", TOS_NODE_ID, paired_device);
                     
                     if (radio_busy) {
