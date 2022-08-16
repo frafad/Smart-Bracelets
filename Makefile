@@ -1,0 +1,2 @@
+COMPONENT=SmartBraceletsC
+include $(MAKERULES)
