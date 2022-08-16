@@ -3,10 +3,11 @@
 
 //defines for msg_type
 #define PAIRING  0
-#define WALKING  1
-#define STANDING 2
-#define RUNNING  3
-#define FALLING  4
+#define PAIRING_CONFIRM 1
+#define WALKING  2
+#define STANDING 3
+#define RUNNING  4
+#define FALLING  5
 
 //payload of the msg
 typedef nx_struct my_msg {
@@ -22,7 +23,7 @@ typedef nx_struct my_msg {
     nx_uint16_t pos_y;    
 	
 } my_msg_t;
- 
+
 
 enum{
 AM_MY_MSG = 6,
