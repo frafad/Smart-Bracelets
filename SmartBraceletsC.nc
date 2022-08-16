@@ -1,7 +1,7 @@
-#include "sendAck.h"
+#include "SmartBracelets.h"
 #include "Timer.h"
 
-module sendAckC {
+module SmartBraceletsC {
 
   uses {
   /****** INTERFACES *****/
@@ -27,6 +27,6 @@ module sendAckC {
 
 } implementation {
 
-    
+
 
 }
