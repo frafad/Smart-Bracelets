@@ -16,7 +16,7 @@ typedef nx_struct my_msg {
 	nx_uint8_t msg_type;
     
     //pairing key
-    nx_uint8_t data[20];
+    nx_uint8_t data[21];
 	
 	//position
     nx_uint16_t pos_x;
