@@ -1,6 +1,7 @@
 #include "SmartBracelets.h"
 #include "Timer.h"
 
+
 module SmartBraceletsC {
 
   uses {
@@ -23,49 +24,100 @@ module SmartBraceletsC {
 	interface PacketAcknowledgements;
 
 	//interface used to perform sensor reading (to get the value from a sensor)
-	interface Read<uint16_t>;
+	interface Read<sensor_read>;
   }
 
 } implementation {
 
-    uint8_t key[21];
+    uint8_t key[KEY_LENGTH];
+    uint8_t phase = 0; //0: pairing, 1: finishing pairing, 2: operational mode
 
-    am_addr_t paired_device;
+    position last_position;
+    sensor_read last_data;
 
     bool radio_busy = FALSE;
+
+    am_addr_t paired_device;
     message_t packet;
 
-    void sendMsg();
+    void (*function_to_call)(void);
+
+
+    void send_pairing_confirm();
+    void send_info_to_parent();
 
     //***************** Auxiliary functions **************//
 
-    /* 
-    void sendMsg(am_addr_t addr) {
-        if (call AMSend.send(addr, &packet, sizeof(my_msg_t)) == SUCCESS) {
-            dbg("radio_send", "Mote %d sending PAIRING packet", TOS_NODE_ID);
-            radio_busy = TRUE;
-            dbg_clear("radio_send", " at time %s \n", sim_time_string());
+    void send_pairing_confirm() {
+        if (radio_busy) {
+            return;
+        } else {
+
+            my_msg_t* msg = (my_msg_t*)call Packet.getPayload(&packet, sizeof(my_msg_t));
+
+            if (msg == NULL) {
+                return;
+            }
+
+            msg->msg_type = PAIRING_CONFIRM;
+
+            call PacketAcknowledgements.requestAck(&packet);
+
+            if (call AMSend.send(paired_device, &packet, sizeof(my_msg_t)) == SUCCESS) {
+                dbg("radio_send", "Mote %d sending PAIRING_CONFIRM packet to mote %d", TOS_NODE_ID, paired_device);
+                radio_busy = TRUE;
+                dbg_clear("radio_send", " at time %s \n", sim_time_string());
+            }
+
         }
     }
-    */
+    
+    
+    void send_info_to_parent() {
 
+        if(radio_busy) {
+		    return;
+	    }
+        else {
+            my_msg_t* msg = (my_msg_t*)call Packet.getPayload(&packet, sizeof(my_msg_t));
+            
+            if (msg == NULL) {
+                return;
+            }
+
+            msg->msg_type = last_data.status;
+            msg->pos_x = last_data.x;
+            msg->pos_y = last_data.y;
+            strncpy((uint8_t *) msg->last_data, key ,20);
+            
+            call PacketAcknowledgements.requestAck(&packet);
+
+            if (call AMSend.send(1, &packet, sizeof(my_msg_t)) == SUCCESS) {
+                dbg("radio_send", "Mote %d sending INFO packet with position (%d, %d) and status %d", TOS_NODE_ID, msg->pos_x, msg->pos_y, msg->msg_type);
+                radio_busy = TRUE;
+                dbg_clear("radio_send", " at time %s \n", sim_time_string());
+            }
+        }
+        
+    }
 
 
     //***************** Boot interface ********************//
     event void Boot.booted() {
         dbg("boot","Application booted.\n");
 
-        if(TOS_NODE_ID % 2 == 0){
-            strcpy(key, "sup3r_s3cret-addr3s0");
+        if(TOS_NODE_ID < 2){
+            strncpy(key, "sup3r_s3cret-addr3s0",KEY_LENGTH);
             dbg("boot","Assigned key %s to node %d.\n",key, TOS_NODE_ID);
         }
         else{
-            strcpy(key, "sup3r_s3cret-addr3s1");
+            strncpy(key, "sup3r_s3cret-addr3s1",KEY_LENGTH);
             dbg("boot","Assigned key %s to node %d.\n", key, TOS_NODE_ID);
         }
 
         call AMControl.start();
     }
+    
 
     //***************** AMControl interface ********************//
     event void AMControl.startDone(error_t err){
@@ -82,6 +134,7 @@ module SmartBraceletsC {
         dbg("boot", "Radio stopped!\n");
     }
 
+
     //********************* MilliTimer interface ********************//
 
     event void PairingTimer.fired() {
@@ -97,7 +150,7 @@ module SmartBraceletsC {
 		    }
 
             msg->msg_type = PAIRING;
-            strcpy(msg->data, key);
+            strncpy(msg->data, key,20);
 
             if (call AMSend.send(AM_BROADCAST_ADDR, &packet, sizeof(my_msg_t)) == SUCCESS) {
                 dbg("radio_send", "Mote %d sending PAIRING packet", TOS_NODE_ID);
@@ -110,6 +163,19 @@ module SmartBraceletsC {
     }
 
 
+    event void DisconnectionTimer.fired() {
+        
+        dbg("MISSING ALARM", "Child bracelet missing, last known position: (%d, %d)", last_position.x, last_position.y);
+
+    }
+
+
+    event void InfoTimer.fired() {
+
+        call Read.read();
+
+    }
+
     //********************* AMSend interface ***********************//
 
     event void AMSend.sendDone(message_t* buf, error_t err) {
@@ -120,8 +186,35 @@ module SmartBraceletsC {
 
             dbg("radio_send", "Packet sent...");
 		    dbg_clear("radio_send", " at time %s \n", sim_time_string());
-            
-            //TODO ACKs for other operation modes
+
+            if (call PacketAcknowledgements.wasAcked(&packet)) {
+                
+                if (phase == 1) {
+                    
+                    /* Start Operation Mode */
+                    if(TOS_NODE_ID % 2 == 0){ //even IDs are childrens
+                        call InfoTimer.startPeriodic(10000);
+                    }
+                    else{ // odd IDs are parents
+                        call DisconnectionTimer.start(60000);
+                    }
+
+                    phase = 2;
+
+                }
+
+                if (phase == 2){
+                    dgb("radio send" , "INFO packet acked correctly");
+                }
+
+            }
+            else{
+                
+                dbg("radio send", "Packet in phase %d not acked, retrying...", phase);
+
+                (*function_to_call)();
+
+            }
 
         } else {
             dbgerror("radio_send", "sendDone error!");
@@ -141,37 +234,27 @@ module SmartBraceletsC {
 
             my_msg_t* msg = (my_msg_t*)payload;
 
-            if (msg->msg_type == PAIRING) {
+            if (phase == 0 && msg->msg_type == PAIRING) {
+                
                 dbg("radio_rec", "Mote %d received packet at time %s with key %s\n", TOS_NODE_ID, sim_time_string(), msg->data);
-                if (strcmp((uint8_t*)msg->data, key) == 0) {
+                
+                if (strncmp((uint8_t*)msg->data, key,20) == 0) {
+                    
                     paired_device = call AMPacket.source(buf);
                     dbg("radio_rec", "Mote %d has the same key as mote %d", TOS_NODE_ID, paired_device);
                     
-                    if (radio_busy) {
-                        return;
-                    } else {
-
-                        my_msg_t* msg = (my_msg_t*)call Packet.getPayload(&packet, sizeof(my_msg_t));
-
-                        if (msg == NULL) {
-                            return;
-                        }
-
-                        msg->msg_type = PAIRING_CONFIRM;
-
-                        if (call AMSend.send(paired_device, &packet, sizeof(my_msg_t)) == SUCCESS) {
-                            dbg("radio_send", "Mote %d sending PAIRING_CONFIRM packet to mote %d", TOS_NODE_ID, paired_device);
-                            radio_busy = TRUE;
-                            dbg_clear("radio_send", " at time %s \n", sim_time_string());
-                        }
-
-                    }
+                    phase = 1;
+                    function_to_call = &send_pairing_confirm;
+                    send_pairing_confirm();
 
                 }
-            } else if (msg->msg_type == PAIRING_CONFIRM) {
+
+            } else if (phase == 1 && msg->msg_type == PAIRING_CONFIRM) {
                 dbg("radio_rec", "Mote %d received PAIRING_CONFIRM message");
                 call PairingTimer.stop();
-                //TODO start next phase
+                
+                //start next phase
+
             }
 
         }
@@ -181,5 +264,13 @@ module SmartBraceletsC {
 
 
     //********************* Read interface ************************//
+
+    event void Read.readDone(error_t result, sensor_read data) {
+
+        //Send info to the parent bracelet
+        last_data = data;
+        function_to_call = &send_info_to_parent;      
+
+    }
 
 }
