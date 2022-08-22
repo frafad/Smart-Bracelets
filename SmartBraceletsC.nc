@@ -187,7 +187,7 @@ module SmartBraceletsC {
             dbg("radio_send", "Packet sent...");
 		    dbg_clear("radio_send", " at time %s \n", sim_time_string());
 
-            if (call PacketAcknowledgements.wasAcked(&packet)) {
+            if (call PacketAcknowledgements.wasAcked(&packet)) { //TODO check for pairing messages
                 
                 if (phase == 1) {
                     
@@ -196,7 +196,7 @@ module SmartBraceletsC {
                         call InfoTimer.startPeriodic(10000);
                     }
                     else{ // odd IDs are parents
-                        call DisconnectionTimer.start(60000);
+                        call DisconnectionTimer.startPeriodic(60000);
                     }
 
                     phase = 2;
@@ -252,9 +252,16 @@ module SmartBraceletsC {
             } else if (phase == 1 && msg->msg_type == PAIRING_CONFIRM) {
                 dbg("radio_rec", "Mote %d received PAIRING_CONFIRM message");
                 call PairingTimer.stop();
-                
-                //start next phase
-
+            } else if (phase == 2 && (msg->msg_type == WALKING || msg->msg_type == STANDING || msg->msg_type == RUNNING)) {
+                last_position.x = msg->pos_x;
+                last_position.y = msg->pos_y;
+                dbg("radio_rec", "INFO -- position: (%d, %d)  status: %d", last_position.x, last_position.y, msg->msg_type);
+                call DisconnectionTimer.stop();
+                call DisconnectionTimer.startPeriodic(60000);
+            } else if (phase == 2 && msg->msg_type == FALLING) {
+                dbg("FALLING ALARM", "");
+                call DisconnectionTimer.stop();
+                call DisconnectionTimer.startPeriodic(60000);
             }
 
         }
@@ -269,7 +276,8 @@ module SmartBraceletsC {
 
         //Send info to the parent bracelet
         last_data = data;
-        function_to_call = &send_info_to_parent;      
+        function_to_call = &send_info_to_parent;
+        send_info_to_parent();   
 
     }
 
