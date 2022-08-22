@@ -23,7 +23,8 @@ generic module FakeSensorP() {
         result.x = call Random.rand16();
         result.y = call Random.rand16();
 
-        uint16_t probability = (call Random.rand16()) % 10;
+        uint16_t probability = call Random.rand16();
+        probability = probability % 10;
 
         if (probability < 3) {
             result.status = STANDING; 
@@ -36,5 +37,6 @@ generic module FakeSensorP() {
         }
         
 		signal Read.readDone( SUCCESS, result);
+
 	}
 }
