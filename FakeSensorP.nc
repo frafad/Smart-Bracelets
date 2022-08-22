@@ -19,11 +19,12 @@ generic module FakeSensorP() {
 	event void Timer0.fired() {
 
         sensor_read result;
+        uint16_t p;
 
         result.x = call Random.rand16();
         result.y = call Random.rand16();
 
-        uint16_t p = call Random.rand16();
+        p = call Random.rand16();
         p = p % 10;
 
         if (p < 3) {
