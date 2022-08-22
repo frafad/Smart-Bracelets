@@ -23,14 +23,14 @@ generic module FakeSensorP() {
         result.x = call Random.rand16();
         result.y = call Random.rand16();
 
-        uint16_t probability = call Random.rand16();
-        probability = probability % 10;
+        uint16_t p = call Random.rand16();
+        p = p % 10;
 
-        if (probability < 3) {
+        if (p < 3) {
             result.status = STANDING; 
-        } else if (probability < 6) {
+        } else if (p < 6) {
             result.status = WALKING;
-        } else if (probability < 9) {
+        } else if (p < 9) {
             result.status = RUNNING;
         } else {
             result.status = FALLING;
