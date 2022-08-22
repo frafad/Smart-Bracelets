@@ -204,13 +204,13 @@ module SmartBraceletsC {
                 }
 
                 if (phase == 2){
-                    dbg("radio send" , "INFO packet acked correctly");
+                    dbg("radio_send" , "INFO packet acked correctly");
                 }
 
             }
             else{
                 
-                dbg("radio send", "Packet in phase %d not acked, retrying...", phase);
+                dbg("radio_send", "Packet in phase %d not acked, retrying...", phase);
 
                 (*function_to_call)();
 

@@ -34,35 +34,40 @@ t.init();
 out = sys.stdout;
 
 #Add debug channel
-print "Activate debug message on channel init"
-t.addChannel("init",out);
 print "Activate debug message on channel boot"
 t.addChannel("boot",out);
 print "Activate debug message on channel radio"
 t.addChannel("radio",out);
 print "Activate debug message on channel radio_send"
 t.addChannel("radio_send",out);
-print "Activate debug message on channel radio_ack"
-t.addChannel("radio_ack",out);
 print "Activate debug message on channel radio_rec"
 t.addChannel("radio_rec",out);
-print "Activate debug message on channel radio_pack"
-t.addChannel("radio_pack",out);
-print "Activate debug message on channel role"
-t.addChannel("role",out);
+print "Activate missing alarm message on channel role"
+t.addChannel("MISSING ALARM",out);
+print "Activate falling alarm message on channel role"
+t.addChannel("FALLING ALARM",out);
 
+time = 0;
 
 print "Creating node 1...";
 node1 =t.getNode(1);
-time1 = 0*t.ticksPerSecond(); #instant at which each node should be turned on
-node1.bootAtTime(time1);
-print ">>>Will boot at time",  time1/t.ticksPerSecond(), "[sec]";
+node1.bootAtTime(time);
+print ">>>Will boot at time",  time/t.ticksPerSecond(), "[sec]";
 
 print "Creating node 2...";
 node2 = t.getNode(2);
-time2 = 1*t.ticksPerSecond();
-node2.bootAtTime(time2);
-print ">>>Will boot at time", time2/t.ticksPerSecond(), "[sec]";
+node2.bootAtTime(time);
+print ">>>Will boot at time", time/t.ticksPerSecond(), "[sec]";
+
+print "Creating node 3...";
+node3 = t.getNode(3);
+node3.bootAtTime(time);
+print ">>>Will boot at time", time/t.ticksPerSecond(), "[sec]";
+
+print "Creating node 4...";
+node4 = t.getNode(4);
+node4.bootAtTime(time);
+print ">>>Will boot at time", time/t.ticksPerSecond(), "[sec]";
 
 
 print "Creating radio channels..."
@@ -98,7 +103,7 @@ for line in lines:
             t.getNode(i).addNoiseTraceReading(val)
 print "Done!";
 
-for i in range(1, 3):
+for i in range(1, 5):
     print ">>>Creating noise model for node:",i;
     t.getNode(i).createNoiseModel()
 
