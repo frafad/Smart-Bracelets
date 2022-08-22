@@ -107,12 +107,12 @@ module SmartBraceletsC {
         dbg("boot","Application booted.\n");
 
         if(TOS_NODE_ID < 2){
-            strncpy(key, "sup3r_s3cret-addr3s0",KEY_LENGTH);
-            dbg("boot","Assigned key %s to node %d.\n",key, TOS_NODE_ID);
+            strncpy(key, "sup3r_s3cret-addr3s0", KEY_LENGTH);
+            dbg("boot","Assigned key %20s to node %d.\n", key, TOS_NODE_ID);
         }
         else{
-            strncpy(key, "sup3r_s3cret-addr3s1",KEY_LENGTH);
-            dbg("boot","Assigned key %s to node %d.\n", key, TOS_NODE_ID);
+            strncpy(key, "sup3r_s3cret-addr3s1", KEY_LENGTH);
+            dbg("boot","Assigned key %20s to node %d.\n", key, TOS_NODE_ID);
         }
 
         call AMControl.start();
