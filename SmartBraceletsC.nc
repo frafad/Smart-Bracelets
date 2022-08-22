@@ -88,7 +88,7 @@ module SmartBraceletsC {
             msg->msg_type = last_data.status;
             msg->pos_x = last_data.x;
             msg->pos_y = last_data.y;
-            strncpy((uint8_t *) msg->last_data, key ,20);
+            strncpy((uint8_t *) msg->data, key ,20);
             
             call PacketAcknowledgements.requestAck(&packet);
 
@@ -204,7 +204,7 @@ module SmartBraceletsC {
                 }
 
                 if (phase == 2){
-                    dgb("radio send" , "INFO packet acked correctly");
+                    dbg("radio send" , "INFO packet acked correctly");
                 }
 
             }
