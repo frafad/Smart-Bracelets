@@ -106,7 +106,7 @@ module SmartBraceletsC {
     event void Boot.booted() {
         dbg("boot","Application booted.\n");
 
-        if(TOS_NODE_ID < 2){
+        if(TOS_NODE_ID < 3){
             strncpy(key, "sup3r_s3cret-addr3s0", KEY_LENGTH);
             dbg("boot","Assigned key %20s to node %d.\n", key, TOS_NODE_ID);
         }
