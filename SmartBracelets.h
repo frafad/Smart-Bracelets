@@ -11,7 +11,7 @@
 #define RUNNING  4
 #define FALLING  5
 
-#define KEY_LENGTH 20
+#define KEY_LENGTH 21
 
 //payload of the msg
 typedef nx_struct my_msg {

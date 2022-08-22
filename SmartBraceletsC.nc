@@ -107,12 +107,12 @@ module SmartBraceletsC {
         dbg("boot","Application booted.\n");
 
         if(TOS_NODE_ID < 3){
-            strncpy(key, "sup3r_s3cret-addr3s0", KEY_LENGTH);
-            dbg("boot","Assigned key %20s to node %d.\n", key, TOS_NODE_ID);
+            strcpy(key, "sup3r_s3cret-addr3s0");
+            dbg("boot","Assigned key %s to node %d.\n", key, TOS_NODE_ID);
         }
         else{
-            strncpy(key, "sup3r_s3cret-addr3s1", KEY_LENGTH);
-            dbg("boot","Assigned key %20s to node %d.\n", key, TOS_NODE_ID);
+            strcpy(key, "sup3r_s3cret-addr3s1");
+            dbg("boot","Assigned key %s to node %d.\n", key, TOS_NODE_ID);
         }
 
         call AMControl.start();
@@ -150,16 +150,16 @@ module SmartBraceletsC {
 		    }
 
             msg->msg_type = PAIRING;
-            strncpy(msg->data, key,20);
+            strncpy((uint8_t *)msg->data, key,20);
 
             if (call AMSend.send(AM_BROADCAST_ADDR, &packet, sizeof(my_msg_t)) == SUCCESS) {
-                dbg("radio_send", "Mote %d sending PAIRING packet", TOS_NODE_ID);
+                dbg("radio_send", "Mote %d sending PAIRING packet with key %s", TOS_NODE_ID, msg->data);
                 radio_busy = TRUE;
                 dbg_clear("radio_send", " at time %s \n", sim_time_string());
             }
 
         }
-
+ 
     }
 
 
@@ -179,6 +179,8 @@ module SmartBraceletsC {
     //********************* AMSend interface ***********************//
 
     event void AMSend.sendDone(message_t* buf, error_t err) {
+    
+    	dbg("radio_send", "sendDone was called");
 
         if (&packet == buf && err == SUCCESS) {
 
@@ -229,6 +231,8 @@ module SmartBraceletsC {
 
     event message_t* Receive.receive(message_t* buf, void* payload, uint8_t len) {
 
+        dbg("radio_rec", "Receive.receive was called");
+        
         if (len != sizeof(my_msg_t)) {return buf;}
         else {
 
@@ -265,6 +269,8 @@ module SmartBraceletsC {
             }
 
         }
+        
+        return buf;
 
     }
 
