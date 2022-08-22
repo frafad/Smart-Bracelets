@@ -29,7 +29,7 @@ generic module FakeSensorP() {
             result.status = STANDING; 
         } else if (probability < 6) {
             result.status = WALKING;
-        } else if (probabiltiy < 9) {
+        } else if (probability < 9) {
             result.status = RUNNING;
         } else {
             result.status = FALLING;
