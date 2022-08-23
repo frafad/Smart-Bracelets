@@ -50,7 +50,7 @@ t.addChannel("FALLING ALARM",out);
 time = 0;
 
 print "Creating node 1...";
-node1 =t.getNode(1);
+node1 = t.getNode(1);
 node1.bootAtTime(time);
 print ">>>Will boot at time",  time/t.ticksPerSecond(), "[sec]";
 
@@ -58,7 +58,7 @@ print "Creating node 2...";
 node2 = t.getNode(2);
 node2.bootAtTime(time);
 print ">>>Will boot at time", time/t.ticksPerSecond(), "[sec]";
-
+'''
 print "Creating node 3...";
 node3 = t.getNode(3);
 node3.bootAtTime(time);
@@ -68,8 +68,7 @@ print "Creating node 4...";
 node4 = t.getNode(4);
 node4.bootAtTime(time);
 print ">>>Will boot at time", time/t.ticksPerSecond(), "[sec]";
-
-
+'''
 print "Creating radio channels..."
 f = open(topofile, "r");
 lines = f.readlines()
@@ -103,7 +102,7 @@ for line in lines:
             t.getNode(i).addNoiseTraceReading(val)
 print "Done!";
 
-for i in range(1, 5):
+for i in range(1, 3):
     print ">>>Creating noise model for node:",i;
     t.getNode(i).createNoiseModel()
 
