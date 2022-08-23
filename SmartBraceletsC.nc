@@ -31,7 +31,7 @@ module SmartBraceletsC {
 } implementation {
 
     uint8_t key[KEY_LENGTH];
-    uint8_t phase = 0; //0: pairing, 1: finishing pairing, 2: operational mode
+    uint8_t phase = 0; //0: pairing; 1: waiting for pairing_confirm ack; 2: operational mode
 
     position last_position;
     sensor_read last_data;
@@ -93,7 +93,7 @@ module SmartBraceletsC {
             
             call PacketAcknowledgements.requestAck(&packet);
 
-            if (call AMSend.send(1, &packet, sizeof(my_msg_t)) == SUCCESS) {
+            if (call AMSend.send(paired_device, &packet, sizeof(my_msg_t)) == SUCCESS) {
                 dbg("radio_send", "Sending INFO packet with position (%d, %d) and status %d", msg->pos_x, msg->pos_y, msg->msg_type);
                 radio_busy = TRUE;
                 dbg_clear("radio_send", " at time %s \n", sim_time_string());
@@ -186,7 +186,7 @@ module SmartBraceletsC {
 
     event void AMSend.sendDone(message_t* buf, error_t err) {
     
-    	dbg("radio_send", "sendDone was called\n");
+    	//dbg("radio_send", "sendDone was called\n");
 
         if (&packet == buf && err == SUCCESS) {
 
@@ -200,8 +200,10 @@ module SmartBraceletsC {
 		            
 		            if (phase == 1) {
 		                
+		                call PairingTimer.stop();
+		                
 		                /* Start Operation Mode */
-		                dbg("radio_send","Starting Operation Mode\n");
+		                dbg("radio_send","Pairing confirmation was acked, starting Operation Mode\n");
 		                if(TOS_NODE_ID % 2 == 0){ //even IDs are childrens
 		                    call InfoTimer.startPeriodic(10000);
 		                }
@@ -250,7 +252,7 @@ module SmartBraceletsC {
                 if (strncmp((uint8_t*)msg->data, key,20) == 0) {
                     
                     paired_device = call AMPacket.source(buf);
-                    dbg("radio_rec", "Same key as mote %d\n", paired_device);
+                    dbg("radio_rec", "Same key as mote %d, will now wait for pairing confirmation message\n", paired_device);
                     
                     phase = 1;
                     function_to_call = &send_pairing_confirm;
@@ -258,9 +260,9 @@ module SmartBraceletsC {
 
                 }
 
-            } else if (phase == 1 && msg->msg_type == PAIRING_CONFIRM) {
+            } else if (msg->msg_type == PAIRING_CONFIRM) {
                 dbg("radio_rec", "Received PAIRING_CONFIRM message\n");
-                call PairingTimer.stop();
+                //call PairingTimer.stop();
             } else if (phase == 2 && (msg->msg_type == WALKING || msg->msg_type == STANDING || msg->msg_type == RUNNING)) {
                 last_position.x = msg->pos_x;
                 last_position.y = msg->pos_y;
@@ -268,7 +270,9 @@ module SmartBraceletsC {
                 call DisconnectionTimer.stop();
                 call DisconnectionTimer.startPeriodic(60000);
             } else if (phase == 2 && msg->msg_type == FALLING) {
-                dbg("FALLING ALARM", "Received child is falling!\n");
+            	last_position.x = msg->pos_x;
+                last_position.y = msg->pos_y;
+                dbg("FALLING ALARM", "Received child is falling at position (%d, %d)\n", last_position.x, last_position.y);
                 call DisconnectionTimer.stop();
                 call DisconnectionTimer.startPeriodic(60000);
             }
