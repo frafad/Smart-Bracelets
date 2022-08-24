@@ -254,20 +254,24 @@ module SmartBraceletsC {
                 }
 
             } else if (msg->msg_type == PAIRING_CONFIRM) {
+                
                 dbg("radio_rec", "[%s] PAIRING_CONFIRM --- received\n", sim_time_string());
                 call PairingTimer.stop();
-            } else if (phase == 2 && (msg->msg_type == WALKING || msg->msg_type == STANDING || msg->msg_type == RUNNING)) {
+                
+            } else if ((paired_device == (call AMPacket.source(buf))) && (phase == 2) && (msg->msg_type != PAIRING) && (msg->msg_type != PAIRING_CONFIRM)) {
+                
                 last_position.x = msg->pos_x;
                 last_position.y = msg->pos_y;
-                dbg("radio_rec", "[%s] INFO --- received position: (%d, %d) and status: %d\n", sim_time_string(), last_position.x, last_position.y, msg->msg_type);
+                
+                if(msg->msg_type == FALLING) {
+                	dbg("FALLING ALARM", "[%s] FALLING ALARM --- child is falling at position (%d, %d)\n", sim_time_string(), last_position.x, last_position.y);
+                } else {
+                	dbg("radio_rec", "[%s] INFO --- received position: (%d, %d) and status: %d\n", sim_time_string(), last_position.x, last_position.y, msg->msg_type);
+                }
+                
                 call DisconnectionTimer.stop();
                 call DisconnectionTimer.startPeriodic(60000);
-            } else if (phase == 2 && msg->msg_type == FALLING) {
-            	last_position.x = msg->pos_x;
-                last_position.y = msg->pos_y;
-                dbg("FALLING ALARM", "[%s] FALLING ALARM --- child is falling at position (%d, %d)\n", sim_time_string(), last_position.x, last_position.y);
-                call DisconnectionTimer.stop();
-                call DisconnectionTimer.startPeriodic(60000);
+                
             }
 
         }
