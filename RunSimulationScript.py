@@ -110,12 +110,13 @@ print "Start simulation with TOSSIM! \n\n\n";
 
 node2_disconnected = False;
 
-for i in range(0,5000):
+for i in range(0,30000):
 	t.runNextEvent()
 	if(node2_disconnected == False):
 		if (t.time() >= (30 * t.ticksPerSecond())): 
 			node2.turnOff()
 			node2_disconnected = True
+			print ">>> Turning off mote 2 to simulate disconnection ...";
 	
 print "\n\n\nSimulation finished!";
 

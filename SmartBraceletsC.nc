@@ -65,9 +65,9 @@ module SmartBraceletsC {
             call PacketAcknowledgements.requestAck(&packet);
 
             if (call AMSend.send(paired_device, &packet, sizeof(my_msg_t)) == SUCCESS) {
-                dbg("radio_send", "Sending PAIRING_CONFIRM packet to mote %d", paired_device);
+                dbg("radio_send", "[%s] PAIRING_CONFIRM --- sent confirmation to mote %d\n", sim_time_string(), paired_device);
                 radio_busy = TRUE;
-                dbg_clear("radio_send", " at time %s \n", sim_time_string());
+                //dbg_clear("radio_send", " at time %s \n", sim_time_string());
             }
 
         }
@@ -94,9 +94,9 @@ module SmartBraceletsC {
             call PacketAcknowledgements.requestAck(&packet);
 
             if (call AMSend.send(paired_device, &packet, sizeof(my_msg_t)) == SUCCESS) {
-                dbg("radio_send", "Sending INFO packet with position (%d, %d) and status %d", msg->pos_x, msg->pos_y, msg->msg_type);
+                dbg("radio_send", "[%s] INFO --- sent position (%d, %d) and status %d\n", sim_time_string(), msg->pos_x, msg->pos_y, msg->msg_type);
                 radio_busy = TRUE;
-                dbg_clear("radio_send", " at time %s \n", sim_time_string());
+                //dbg_clear("radio_send", " at time %s \n", sim_time_string());
             }
         }
         
@@ -105,15 +105,15 @@ module SmartBraceletsC {
 
     //***************** Boot interface ********************//
     event void Boot.booted() {
-        dbg("boot","Application booted.\n");
+        dbg("boot","[%s] Application booted.\n", sim_time_string());
 
         if(TOS_NODE_ID < 3){
             strcpy(key, "sup3r_s3cret-addr3s0");
-            dbg("boot","Assigned key %s to node %d.\n", key, TOS_NODE_ID);
+            dbg("boot","[%s] Assigned key %s to node %d.\n", sim_time_string(), key, TOS_NODE_ID);
         }
         else{
             strcpy(key, "sup3r_s3cret-addr3s1");
-            dbg("boot","Assigned key %s to node %d.\n", key, TOS_NODE_ID);
+            dbg("boot","[%s] Assigned key %s to node %d.\n", sim_time_string(), key, TOS_NODE_ID);
         }
 
         call AMControl.start();
@@ -123,16 +123,16 @@ module SmartBraceletsC {
     //***************** AMControl interface ********************//
     event void AMControl.startDone(error_t err){
         if (err == SUCCESS) {
-            dbg("radio","Radio on on node %d!\n", TOS_NODE_ID);
+            dbg("radio","[%s] Radio on on node %d!\n", sim_time_string(), TOS_NODE_ID);
             call PairingTimer.startPeriodic(500);
         } else {
-            dbgerror("radio","AMControl failed to start on node %d, retrying...\n", TOS_NODE_ID);
+            dbgerror("radio","[%s] AMControl failed to start on node %d, retrying...\n", sim_time_string(), TOS_NODE_ID);
             call AMControl.start();
         }
     }
 
     event void AMControl.stopDone(error_t err){
-        dbg("boot", "Radio stopped!\n");
+        dbg("boot", "[%s] Radio stopped!\n", sim_time_string());
     }
 
 
@@ -157,9 +157,9 @@ module SmartBraceletsC {
             strncpy(msg->data, key,20);
 
             if (call AMSend.send(AM_BROADCAST_ADDR, &packet, sizeof(my_msg_t)) == SUCCESS) {
-                dbg("radio_send", "Sending PAIRING packet with key %s", msg->data);
+                dbg("radio_send", "[%s] PAIRING --- sending broadcast with key %s\n", sim_time_string(), msg->data);
                 radio_busy = TRUE;
-                dbg_clear("radio_send", " at time %s \n", sim_time_string());
+                //dbg_clear("radio_send", " at time %s \n", sim_time_string());
             }
 
         }
@@ -171,7 +171,7 @@ module SmartBraceletsC {
 
     event void DisconnectionTimer.fired() {
         
-        dbg("MISSING ALARM", "Child bracelet missing, last known position: (%d, %d)\n", last_position.x, last_position.y);
+        dbg("MISSING ALARM", "[%s] MISSING ALARM --- child bracelet missing, last known position: (%d, %d)\n", sim_time_string(), last_position.x, last_position.y);
 
     }
 
@@ -190,20 +190,18 @@ module SmartBraceletsC {
 
         if (&packet == buf && err == SUCCESS) {
 
-            radio_busy = FALSE;
-				
-            //dbg("radio_send", "Packet sent...");
-		    //dbg_clear("radio_send", " at time %s \n", sim_time_string());
+			my_msg_t* msg = (my_msg_t*)call Packet.getPayload(&packet, sizeof(my_msg_t));
 			
-			if (phase != 0) {
-		        if (call PacketAcknowledgements.wasAcked(&packet)) { //TODO check for pairing messages
+            radio_busy = FALSE;			
+			
+			if (msg->msg_type != PAIRING) {
+		        
+		        if (call PacketAcknowledgements.wasAcked(&packet)) {
 		            
 		            if (phase == 1) {
 		                
-		                call PairingTimer.stop();
-		                
 		                /* Start Operation Mode */
-		                dbg("radio_send","Pairing confirmation was acked, starting Operation Mode\n");
+		                dbg("radio_send","[%s] PAIRING_CONFIRM --- confirmation was acked, starting Operation Mode\n", sim_time_string());
 		                if(TOS_NODE_ID % 2 == 0){ //even IDs are childrens
 		                    call InfoTimer.startPeriodic(10000);
 		                }
@@ -215,18 +213,14 @@ module SmartBraceletsC {
 
 		            }
 
-		            if (phase == 2){
-		                //dbg("radio_send" , "INFO packet acked correctly\n");
-		            }
-
 		        }
 		        else{		            
-		            dbg("radio_send", "Packet in phase %d not acked, retrying...\n", phase);				
+		            dbg("radio_send", "[%s] Packet in phase %d not acked, retrying...\n", sim_time_string(), phase);				
 		            (*function_to_call)();
 		        }
 			}
         } else {
-            dbgerror("radio_send", "sendDone error!\n");
+            dbgerror("radio_send", "[%s] sendDone error on mote %d!\n", sim_time_string(), TOS_NODE_ID);
         }
 
 
@@ -245,34 +239,33 @@ module SmartBraceletsC {
 
             my_msg_t* msg = (my_msg_t*)payload;
 
-            if (phase == 0 && msg->msg_type == PAIRING) {
-                
-                dbg("radio_rec", "Received pairing packet at time %s with key %s\n", sim_time_string(), msg->data);
+            if (msg->msg_type == PAIRING) {
                 
                 if (strncmp((uint8_t*)msg->data, key,20) == 0) {
                     
                     paired_device = call AMPacket.source(buf);
-                    dbg("radio_rec", "Same key as mote %d, will now wait for pairing confirmation message\n", paired_device);
+                    dbg("radio_rec", "[%s] PAIRING --- received matching key from mote %d\n", sim_time_string(), paired_device);
                     
                     phase = 1;
+                    
                     function_to_call = &send_pairing_confirm;
                     send_pairing_confirm();
 
                 }
 
             } else if (msg->msg_type == PAIRING_CONFIRM) {
-                dbg("radio_rec", "Received PAIRING_CONFIRM message\n");
-                //call PairingTimer.stop();
+                dbg("radio_rec", "[%s] PAIRING_CONFIRM --- received\n", sim_time_string());
+                call PairingTimer.stop();
             } else if (phase == 2 && (msg->msg_type == WALKING || msg->msg_type == STANDING || msg->msg_type == RUNNING)) {
                 last_position.x = msg->pos_x;
                 last_position.y = msg->pos_y;
-                dbg("radio_rec", "Received INFO -- position: (%d, %d)  status: %d\n", last_position.x, last_position.y, msg->msg_type);
+                dbg("radio_rec", "[%s] INFO --- received position: (%d, %d) and status: %d\n", sim_time_string(), last_position.x, last_position.y, msg->msg_type);
                 call DisconnectionTimer.stop();
                 call DisconnectionTimer.startPeriodic(60000);
             } else if (phase == 2 && msg->msg_type == FALLING) {
             	last_position.x = msg->pos_x;
                 last_position.y = msg->pos_y;
-                dbg("FALLING ALARM", "Received child is falling at position (%d, %d)\n", last_position.x, last_position.y);
+                dbg("FALLING ALARM", "[%s] FALLING ALARM --- child is falling at position (%d, %d)\n", sim_time_string(), last_position.x, last_position.y);
                 call DisconnectionTimer.stop();
                 call DisconnectionTimer.startPeriodic(60000);
             }
