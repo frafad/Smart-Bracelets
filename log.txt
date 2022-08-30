@@ -62,256 +62,273 @@ DEBUG (4): [0:0:0.488281260] PAIRING --- sending broadcast with key sup3r_s3cret
 DEBUG (2): [0:0:0.488281260] PAIRING --- sending broadcast with key sup3r_s3cret-addr3s0
 DEBUG (3): [0:0:0.488281260] PAIRING --- sending broadcast with key sup3r_s3cret-addr3s1
 DEBUG (1): [0:0:0.488281260] PAIRING --- sending broadcast with key sup3r_s3cret-addr3s0
-DEBUG (2): [0:0:0.491073602] PAIRING --- received matching key from mote 1
-DEBUG (1): [0:0:0.492599472] PAIRING --- received matching key from mote 2
-DEBUG (1): [0:0:0.492599472] PAIRING_CONFIRM --- sent confirmation to mote 2
-DEBUG (4): [0:0:0.494110083] PAIRING --- received matching key from mote 3
-DEBUG (2): [0:0:0.496093714] PAIRING_CONFIRM --- received
-DEBUG (1): [0:0:0.496261560] PAIRING_CONFIRM --- confirmation was acked, starting Operation Mode
-DEBUG (3): [0:0:0.497787430] PAIRING --- received matching key from mote 4
-DEBUG (3): [0:0:0.497787430] PAIRING_CONFIRM --- sent confirmation to mote 4
-DEBUG (4): [0:0:0.507736102] PAIRING_CONFIRM --- received
-DEBUG (3): [0:0:0.507903948] PAIRING_CONFIRM --- confirmation was acked, starting Operation Mode
-DEBUG (3): [0:0:0.976562510] PAIRING --- sending broadcast with key sup3r_s3cret-addr3s1
+DEBUG (2): [0:0:0.492141711] PAIRING --- received matching key from mote 1
+DEBUG (4): [0:0:0.494308446] PAIRING --- received matching key from mote 3
+DEBUG (3): [0:0:0.496170007] PAIRING --- received matching key from mote 4
+DEBUG (3): [0:0:0.496170007] PAIRING_CONFIRM --- sent confirmation to mote 4
+DEBUG (1): [0:0:0.498046828] PAIRING --- received matching key from mote 2
+DEBUG (1): [0:0:0.498046828] PAIRING_CONFIRM --- sent confirmation to mote 2
+DEBUG (2): [0:0:0.500869687] PAIRING_CONFIRM --- received
+DEBUG (1): [0:0:0.501037533] PAIRING_CONFIRM --- confirmation was acked, starting Operation Mode
+DEBUG (4): [0:0:0.505264193] PAIRING_CONFIRM --- received
+DEBUG (3): [0:0:0.505432038] PAIRING_CONFIRM --- confirmation was acked, starting Operation Mode
 DEBUG (1): [0:0:0.976562510] PAIRING --- sending broadcast with key sup3r_s3cret-addr3s0
-DEBUG (2): [0:0:0.984130825] PAIRING --- received matching key from mote 1
-DEBUG (2): [0:0:0.984130825] PAIRING_CONFIRM --- sent confirmation to mote 1
-DEBUG (4): [0:0:0.987029978] PAIRING --- received matching key from mote 3
-DEBUG (4): [0:0:0.987029978] PAIRING_CONFIRM --- sent confirmation to mote 3
-DEBUG (3): [0:0:0.990142753] PAIRING_CONFIRM --- received
-DEBUG (4): [0:0:0.990310598] PAIRING_CONFIRM --- confirmation was acked, starting Operation Mode
-DEBUG (1): [0:0:0.993636995] PAIRING_CONFIRM --- received
-DEBUG (2): [0:0:0.993804841] PAIRING_CONFIRM --- confirmation was acked, starting Operation Mode
-DEBUG (4): [0:0:10.765625010] INFO --- sent position (18499, 9909) and status 3
-DEBUG (2): [0:0:10.768554697] INFO --- sent position (50421, 45267) and status 4
-DEBUG (1): [0:0:10.772659287] INFO --- received position: (50421, 45267) and status: 4
-DEBUG (3): [0:0:10.774780230] INFO --- received position: (18499, 9909) and status: 3
-DEBUG (4): [0:0:20.531250010] INFO --- sent position (15572, 38284) and status 4
-DEBUG (2): [0:0:20.534179697] INFO --- sent position (9343, 9863) and status 3
-DEBUG (3): [0:0:20.536697365] INFO --- received position: (15572, 38284) and status: 4
-DEBUG (1): [0:0:20.541702236] INFO --- received position: (9343, 9863) and status: 3
+DEBUG (3): [0:0:0.976562510] PAIRING --- sending broadcast with key sup3r_s3cret-addr3s1
+DEBUG (4): [0:0:0.980667100] PAIRING --- received matching key from mote 3
+DEBUG (4): [0:0:0.980667100] PAIRING_CONFIRM --- sent confirmation to mote 3
+DEBUG (2): [0:0:0.986938426] PAIRING --- received matching key from mote 1
+DEBUG (2): [0:0:0.986938426] PAIRING_CONFIRM --- sent confirmation to mote 1
+DEBUG (1): [0:0:0.989684992] PAIRING_CONFIRM --- received
+DEBUG (2): [0:0:0.989852837] PAIRING_CONFIRM --- confirmation was acked, starting Operation Mode
+DEBUG (3): [0:0:0.991638105] PAIRING_CONFIRM --- received
+DEBUG (4): [0:0:0.991805951] PAIRING_CONFIRM --- confirmation was acked, starting Operation Mode
+DEBUG (2): [0:0:10.764648447] INFO --- sent position (50421, 45267) and status 4
+DEBUG (4): [0:0:10.766601572] INFO --- sent position (18499, 9909) and status 3
+DEBUG (1): [0:0:10.767608635] INFO --- received position: (50421, 45267) and status: 4
+DEBUG (3): [0:0:10.773483246] INFO --- received position: (18499, 9909) and status: 3
+DEBUG (2): [0:0:20.530273447] INFO --- sent position (9343, 9863) and status 3
+DEBUG (4): [0:0:20.532226572] INFO --- sent position (15572, 38284) and status 4
+DEBUG (3): [0:0:20.536193834] INFO --- received position: (15572, 38284) and status: 4
+DEBUG (1): [0:0:20.538528404] INFO --- received position: (9343, 9863) and status: 3
+DEBUG (2): [0:0:20.538696249] Packet in phase 2 not acked, retrying...
+DEBUG (2): [0:0:20.538696249] INFO --- sent position (9343, 9863) and status 3
+DEBUG (1): [0:0:20.543029720] INFO --- received position: (9343, 9863) and status: 3
+DEBUG (2): [0:0:30.295898447] INFO --- sent position (44168, 7676) and status 5
+DEBUG (4): [0:0:30.297851572] INFO --- sent position (51768, 12793) and status 4
+DEBUG (1): [0:0:30.302642792] FALLING ALARM --- child is falling at position (44168, 7676)
+DEBUG (3): [0:0:30.305801355] INFO --- received position: (51768, 12793) and status: 4
+DEBUG (2): [0:0:40.061523447] INFO --- sent position (3305, 51657) and status 4
+DEBUG (4): [0:0:40.063476572] INFO --- sent position (5509, 64249) and status 3
+DEBUG (3): [0:0:40.066940297] INFO --- received position: (5509, 64249) and status: 3
+DEBUG (1): [0:0:40.071487378] INFO --- received position: (3305, 51657) and status: 4
+DEBUG (2): [0:0:49.827148447] INFO --- sent position (14246, 37798) and status 3
+DEBUG (4): [0:0:49.829101572] INFO --- sent position (23744, 19306) and status 3
+DEBUG (1): [0:0:49.834259001] INFO --- received position: (14246, 37798) and status: 3
+DEBUG (3): [0:0:49.836410489] INFO --- received position: (23744, 19306) and status: 3
 >>> Turning off mote 2 to simulate disconnection ...
-DEBUG (4): [0:0:30.296875010] INFO --- sent position (51768, 12793) and status 4
-DEBUG (3): [0:0:30.303909270] INFO --- received position: (51768, 12793) and status: 4
-DEBUG (4): [0:0:40.062500010] INFO --- sent position (5509, 64249) and status 3
-DEBUG (3): [0:0:40.066635117] INFO --- received position: (5509, 64249) and status: 3
-DEBUG (4): [0:0:49.828125010] INFO --- sent position (23744, 19306) and status 3
-DEBUG (3): [0:0:49.834487887] INFO --- received position: (23744, 19306) and status: 3
-DEBUG (4): [0:0:59.593750010] INFO --- sent position (5221, 7542) and status 5
-DEBUG (3): [0:0:59.601318325] FALLING ALARM --- child is falling at position (5221, 7542)
-DEBUG (4): [0:1:9.359375010] INFO --- sent position (53753, 28324) and status 4
-DEBUG (3): [0:1:9.367919882] INFO --- received position: (53753, 28324) and status: 4
-DEBUG (4): [0:1:19.125000010] INFO --- sent position (55128, 61155) and status 4
-DEBUG (1): [0:1:19.134765635] MISSING ALARM --- child bracelet missing, last known position: (9343, 9863)
-DEBUG (3): [0:1:19.135009717] INFO --- received position: (55128, 61155) and status: 4
-DEBUG (4): [0:1:28.890625010] INFO --- sent position (64444, 715) and status 2
-DEBUG (3): [0:1:28.902038517] INFO --- received position: (64444, 715) and status: 2
-DEBUG (4): [0:1:38.656250010] INFO --- sent position (5425, 21930) and status 3
-DEBUG (3): [0:1:38.662521335] INFO --- received position: (5425, 21930) and status: 3
-DEBUG (4): [0:1:48.421875010] INFO --- sent position (63233, 34525) and status 3
-DEBUG (3): [0:1:48.429931603] INFO --- received position: (63233, 34525) and status: 3
-DEBUG (4): [0:1:58.187500010] INFO --- sent position (38399, 42989) and status 2
-DEBUG (3): [0:1:58.198409980] INFO --- received position: (38399, 42989) and status: 2
-DEBUG (4): [0:2:7.953125010] INFO --- sent position (32962, 19268) and status 2
-DEBUG (3): [0:2:7.964477482] INFO --- received position: (32962, 19268) and status: 2
-DEBUG (4): [0:2:17.718750010] INFO --- sent position (5754, 55772) and status 4
-DEBUG (3): [0:2:17.722549426] INFO --- received position: (5754, 55772) and status: 4
-DEBUG (1): [0:2:17.728515635] MISSING ALARM --- child bracelet missing, last known position: (9343, 9863)
-DEBUG (4): [0:2:27.484375010] INFO --- sent position (44568, 53739) and status 2
-DEBUG (3): [0:2:27.494598339] INFO --- received position: (44568, 53739) and status: 2
-DEBUG (4): [0:2:37.250000010] INFO --- sent position (56037, 2111) and status 5
-DEBUG (3): [0:2:37.259155230] FALLING ALARM --- child is falling at position (56037, 2111)
-DEBUG (4): [0:2:47.015625010] INFO --- sent position (52491, 42251) and status 4
-DEBUG (3): [0:2:47.026184030] INFO --- received position: (52491, 42251) and status: 4
-DEBUG (4): [0:2:56.781250010] INFO --- sent position (37511, 63125) and status 3
-DEBUG (3): [0:2:56.784088128] INFO --- received position: (37511, 63125) and status: 3
-DEBUG (4): [0:3:6.546875010] INFO --- sent position (63845, 35370) and status 4
-DEBUG (3): [0:3:6.549758904] INFO --- received position: (63845, 35370) and status: 4
-DEBUG (4): [0:3:16.312500010] INFO --- sent position (392, 42950) and status 2
-DEBUG (3): [0:3:16.318847629] INFO --- received position: (392, 42950) and status: 2
-DEBUG (1): [0:3:16.322265635] MISSING ALARM --- child bracelet missing, last known position: (9343, 9863)
-DEBUG (4): [0:3:26.078125010] INFO --- sent position (23766, 2036) and status 2
-DEBUG (3): [0:3:26.084091161] INFO --- received position: (23766, 2036) and status: 2
-DEBUG (4): [0:3:35.843750010] INFO --- sent position (23401, 29073) and status 5
-DEBUG (3): [0:3:35.852447469] FALLING ALARM --- child is falling at position (23401, 29073)
-DEBUG (4): [0:3:45.609375010] INFO --- sent position (7606, 44400) and status 4
-DEBUG (3): [0:3:45.619522045] INFO --- received position: (7606, 44400) and status: 4
-DEBUG (4): [0:3:55.375000010] INFO --- sent position (3177, 55732) and status 2
-DEBUG (3): [0:3:55.380126933] INFO --- received position: (3177, 55732) and status: 2
-DEBUG (4): [0:4:5.140625010] INFO --- sent position (5384, 55685) and status 5
-DEBUG (3): [0:4:5.145431500] FALLING ALARM --- child is falling at position (5384, 55685)
-DEBUG (4): [0:4:14.906250010] INFO --- sent position (52688, 10199) and status 3
-DEBUG (3): [0:4:14.911041241] INFO --- received position: (52688, 10199) and status: 3
-DEBUG (1): [0:4:14.916015635] MISSING ALARM --- child bracelet missing, last known position: (9343, 9863)
-DEBUG (4): [0:4:24.671875010] INFO --- sent position (32552, 20508) and status 2
-DEBUG (3): [0:4:24.676879863] INFO --- received position: (32552, 20508) and status: 2
-DEBUG (4): [0:4:34.437500010] INFO --- sent position (56566, 50081) and status 3
-DEBUG (3): [0:4:34.445190394] INFO --- received position: (56566, 50081) and status: 3
-DEBUG (4): [0:4:44.203125010] INFO --- sent position (39981, 25794) and status 3
-DEBUG (4): [0:4:44.206115715] Packet in phase 2 not acked, retrying...
-DEBUG (4): [0:4:44.206115715] INFO --- sent position (39981, 25794) and status 3
-DEBUG (3): [0:4:44.212158160] INFO --- received position: (39981, 25794) and status: 3
-DEBUG (4): [0:4:53.968750010] INFO --- sent position (32887, 11723) and status 4
-DEBUG (3): [0:4:53.974502539] INFO --- received position: (32887, 11723) and status: 4
-DEBUG (4): [0:5:3.734375010] INFO --- sent position (42525, 50384) and status 4
-DEBUG (3): [0:5:3.740066505] INFO --- received position: (42525, 50384) and status: 4
-DEBUG (4): [0:5:13.500000010] INFO --- sent position (50028, 3234) and status 2
-DEBUG (3): [0:5:13.503921495] INFO --- received position: (50028, 3234) and status: 2
-DEBUG (1): [0:5:13.509765635] MISSING ALARM --- child bracelet missing, last known position: (9343, 9863)
-DEBUG (4): [0:5:23.265625010] INFO --- sent position (20542, 6761) and status 4
-DEBUG (3): [0:5:23.274490314] INFO --- received position: (20542, 6761) and status: 4
-DEBUG (4): [0:5:33.031250010] INFO --- sent position (16634, 57891) and status 5
-DEBUG (3): [0:5:33.034545889] FALLING ALARM --- child is falling at position (16634, 57891)
-DEBUG (4): [0:5:42.796875010] INFO --- sent position (57340, 13828) and status 2
-DEBUG (3): [0:5:42.804153409] INFO --- received position: (57340, 13828) and status: 2
-DEBUG (4): [0:5:52.562500010] INFO --- sent position (60568, 10113) and status 2
-DEBUG (3): [0:5:52.569915738] INFO --- received position: (60568, 10113) and status: 2
-DEBUG (4): [0:6:2.328125010] INFO --- sent position (17168, 64402) and status 2
-DEBUG (3): [0:6:2.331085197] INFO --- received position: (17168, 64402) and status: 2
-DEBUG (4): [0:6:12.093750010] INFO --- sent position (17558, 1159) and status 3
-DEBUG (1): [0:6:12.103515635] MISSING ALARM --- child bracelet missing, last known position: (9343, 9863)
-DEBUG (3): [0:6:12.103927562] INFO --- received position: (17558, 1159) and status: 3
-DEBUG (4): [0:6:21.859375010] INFO --- sent position (20178, 50470) and status 2
-DEBUG (3): [0:6:21.869506786] INFO --- received position: (20178, 50470) and status: 2
-DEBUG (4): [0:6:31.625000010] INFO --- sent position (13644, 5315) and status 4
-DEBUG (3): [0:6:31.634002643] INFO --- received position: (13644, 5315) and status: 4
-DEBUG (4): [0:6:41.390625010] INFO --- sent position (56148, 34218) and status 2
-DEBUG (3): [0:6:41.399276692] INFO --- received position: (56148, 34218) and status: 2
-DEBUG (4): [0:6:51.156250010] INFO --- sent position (52970, 26967) and status 4
-DEBUG (3): [0:6:51.166274975] INFO --- received position: (52970, 26967) and status: 4
-DEBUG (4): [0:7:0.921875010] INFO --- sent position (6129, 64635) and status 4
-DEBUG (3): [0:7:0.925872789] INFO --- received position: (6129, 64635) and status: 4
-DEBUG (4): [0:7:10.687500010] INFO --- sent position (44411, 36050) and status 3
-DEBUG (3): [0:7:10.692657450] INFO --- received position: (44411, 36050) and status: 3
-DEBUG (1): [0:7:10.697265635] MISSING ALARM --- child bracelet missing, last known position: (9343, 9863)
-DEBUG (4): [0:7:20.453125010] INFO --- sent position (58730, 50047) and status 3
-DEBUG (3): [0:7:20.462051349] INFO --- received position: (58730, 50047) and status: 3
-DEBUG (4): [0:7:30.218750010] INFO --- sent position (60242, 37405) and status 2
-DEBUG (3): [0:7:30.227310140] INFO --- received position: (60242, 37405) and status: 2
-DEBUG (4): [0:7:39.984375010] INFO --- sent position (43013, 7605) and status 2
-DEBUG (3): [0:7:39.991592375] INFO --- received position: (43013, 7605) and status: 2
-DEBUG (4): [0:7:49.750000010] INFO --- sent position (11935, 64444) and status 4
-DEBUG (3): [0:7:49.761108343] INFO --- received position: (11935, 64444) and status: 4
-DEBUG (4): [0:7:59.515625010] INFO --- sent position (46340, 21960) and status 3
-DEBUG (3): [0:7:59.519393908] INFO --- received position: (46340, 21960) and status: 3
-DEBUG (4): [0:8:9.281250010] INFO --- sent position (65525, 25588) and status 2
-DEBUG (3): [0:8:9.288467375] INFO --- received position: (65525, 25588) and status: 2
-DEBUG (1): [0:8:9.291015635] MISSING ALARM --- child bracelet missing, last known position: (9343, 9863)
-DEBUG (4): [0:8:19.046875010] INFO --- sent position (49926, 54254) and status 4
-DEBUG (3): [0:8:19.049591058] INFO --- received position: (49926, 54254) and status: 4
-DEBUG (4): [0:8:28.812500010] INFO --- sent position (14387, 56791) and status 2
-DEBUG (3): [0:8:28.821166951] INFO --- received position: (14387, 56791) and status: 2
-DEBUG (4): [0:8:38.578125010] INFO --- sent position (34085, 27067) and status 3
-DEBUG (3): [0:8:38.585189788] INFO --- received position: (34085, 27067) and status: 3
-DEBUG (4): [0:8:48.343750010] INFO --- sent position (31434, 25800) and status 2
-DEBUG (3): [0:8:48.346710197] INFO --- received position: (31434, 25800) and status: 2
-DEBUG (4): [0:8:58.109375010] INFO --- sent position (15306, 35051) and status 3
-DEBUG (3): [0:8:58.116760220] INFO --- received position: (15306, 35051) and status: 3
-DEBUG (4): [0:9:7.875000010] INFO --- sent position (12194, 22030) and status 3
-DEBUG (1): [0:9:7.884765635] MISSING ALARM --- child bracelet missing, last known position: (9343, 9863)
-DEBUG (3): [0:9:7.886657656] INFO --- received position: (12194, 22030) and status: 3
-DEBUG (4): [0:9:17.640625010] INFO --- sent position (15338, 45072) and status 3
-DEBUG (3): [0:9:17.643707267] INFO --- received position: (15338, 45072) and status: 3
-DEBUG (4): [0:9:27.406250010] INFO --- sent position (41230, 47679) and status 4
-DEBUG (3): [0:9:27.409271232] INFO --- received position: (41230, 47679) and status: 4
-DEBUG (4): [0:9:37.171875010] INFO --- sent position (3572, 9599) and status 3
-DEBUG (3): [0:9:37.178405733] INFO --- received position: (3572, 9599) and status: 3
-DEBUG (4): [0:9:46.937500010] INFO --- sent position (20899, 53422) and status 2
-DEBUG (3): [0:9:46.945144618] INFO --- received position: (20899, 53422) and status: 2
-DEBUG (4): [0:9:56.703125010] INFO --- sent position (2350, 56343) and status 3
-DEBUG (3): [0:9:56.714355413] INFO --- received position: (2350, 56343) and status: 3
-DEBUG (4): [0:10:6.468750010] INFO --- sent position (34979, 45198) and status 3
-DEBUG (3): [0:10:6.476730310] INFO --- received position: (34979, 45198) and status: 3
-DEBUG (1): [0:10:6.478515635] MISSING ALARM --- child bracelet missing, last known position: (9343, 9863)
-DEBUG (4): [0:10:16.234375010] INFO --- sent position (27099, 49917) and status 4
-DEBUG (3): [0:10:16.242187464] INFO --- received position: (27099, 49917) and status: 4
-DEBUG (4): [0:10:26.000000010] INFO --- sent position (18056, 40626) and status 3
-DEBUG (3): [0:10:26.009063677] INFO --- received position: (18056, 40626) and status: 3
-DEBUG (4): [0:10:35.765625010] INFO --- sent position (33430, 17915) and status 4
-DEBUG (3): [0:10:35.771774266] INFO --- received position: (33430, 17915) and status: 4
-DEBUG (4): [0:10:45.531250010] INFO --- sent position (14248, 2822) and status 4
-DEBUG (3): [0:10:45.538085907] INFO --- received position: (14248, 2822) and status: 4
-DEBUG (4): [0:10:55.296875010] INFO --- sent position (57653, 27516) and status 3
-DEBUG (3): [0:10:55.300033560] INFO --- received position: (57653, 27516) and status: 3
-DEBUG (4): [0:11:5.062500010] INFO --- sent position (35214, 60206) and status 4
-DEBUG (1): [0:11:5.072265635] MISSING ALARM --- child bracelet missing, last known position: (9343, 9863)
-DEBUG (3): [0:11:5.073135323] INFO --- received position: (35214, 60206) and status: 4
-DEBUG (4): [0:11:14.828125010] INFO --- sent position (1472, 37140) and status 3
-DEBUG (3): [0:11:14.832672102] INFO --- received position: (1472, 37140) and status: 3
-DEBUG (4): [0:11:24.593750010] INFO --- sent position (63943, 40289) and status 2
-DEBUG (3): [0:11:24.603546095] INFO --- received position: (63943, 40289) and status: 2
-DEBUG (4): [0:11:34.359375010] INFO --- sent position (16663, 34563) and status 4
-DEBUG (3): [0:11:34.365005470] INFO --- received position: (16663, 34563) and status: 4
-DEBUG (4): [0:11:44.125000010] INFO --- sent position (56357, 11194) and status 4
-DEBUG (3): [0:11:44.128616321] INFO --- received position: (56357, 11194) and status: 4
-DEBUG (4): [0:11:53.890625010] INFO --- sent position (1204, 50600) and status 4
-DEBUG (3): [0:11:53.900268508] INFO --- received position: (1204, 50600) and status: 4
-DEBUG (4): [0:12:3.656250010] INFO --- sent position (6517, 22167) and status 2
-DEBUG (3): [0:12:3.658691402] INFO --- received position: (6517, 22167) and status: 2
-DEBUG (1): [0:12:3.666015635] MISSING ALARM --- child bracelet missing, last known position: (9343, 9863)
-DEBUG (4): [0:12:13.421875010] INFO --- sent position (52217, 23864) and status 4
-DEBUG (3): [0:12:13.431747388] INFO --- received position: (52217, 23864) and status: 4
-DEBUG (4): [0:12:23.187500010] INFO --- sent position (29309, 35261) and status 3
-DEBUG (3): [0:12:23.198928776] INFO --- received position: (29309, 35261) and status: 3
-DEBUG (4): [0:12:32.953125010] INFO --- sent position (3260, 19493) and status 4
-DEBUG (3): [0:12:32.955551143] INFO --- received position: (3260, 19493) and status: 4
-DEBUG (4): [0:12:42.718750010] INFO --- sent position (43284, 32152) and status 3
-DEBUG (3): [0:12:42.722610461] INFO --- received position: (43284, 32152) and status: 3
-DEBUG (4): [0:12:52.484375010] INFO --- sent position (60553, 9957) and status 2
-DEBUG (3): [0:12:52.490676853] INFO --- received position: (60553, 9957) and status: 2
-DEBUG (4): [0:13:2.250000010] INFO --- sent position (31341, 39222) and status 3
-DEBUG (3): [0:13:2.257003753] INFO --- received position: (31341, 39222) and status: 3
-DEBUG (1): [0:13:2.259765635] MISSING ALARM --- child bracelet missing, last known position: (9343, 9863)
-DEBUG (4): [0:13:12.015625010] INFO --- sent position (41604, 41693) and status 4
-DEBUG (3): [0:13:12.018356317] INFO --- received position: (41604, 41693) and status: 4
-DEBUG (4): [0:13:21.781250010] INFO --- sent position (34238, 32544) and status 3
-DEBUG (3): [0:13:21.786041241] INFO --- received position: (34238, 32544) and status: 3
-DEBUG (4): [0:13:31.546875010] INFO --- sent position (17864, 36564) and status 2
-DEBUG (3): [0:13:31.557327219] INFO --- received position: (17864, 36564) and status: 2
-DEBUG (4): [0:13:41.312500010] INFO --- sent position (55306, 32228) and status 4
-DEBUG (3): [0:13:41.320159877] INFO --- received position: (55306, 32228) and status: 4
-DEBUG (4): [0:13:51.078125010] INFO --- sent position (65163, 37012) and status 3
-DEBUG (3): [0:13:51.084381077] INFO --- received position: (65163, 37012) and status: 3
-DEBUG (4): [0:14:0.843750010] INFO --- sent position (55943, 56034) and status 3
-DEBUG (3): [0:14:0.848327620] INFO --- received position: (55943, 56034) and status: 3
-DEBUG (1): [0:14:0.853515635] MISSING ALARM --- child bracelet missing, last known position: (9343, 9863)
-DEBUG (4): [0:14:10.609375010] INFO --- sent position (6976, 2170) and status 2
-DEBUG (3): [0:14:10.617477379] INFO --- received position: (6976, 2170) and status: 2
-DEBUG (4): [0:14:20.375000010] INFO --- sent position (33479, 57405) and status 2
-DEBUG (3): [0:14:20.385726876] INFO --- received position: (33479, 57405) and status: 2
-DEBUG (4): [0:14:30.140625010] INFO --- sent position (36384, 3254) and status 5
-DEBUG (3): [0:14:30.144882187] FALLING ALARM --- child is falling at position (36384, 3254)
-DEBUG (4): [0:14:39.906250010] INFO --- sent position (33269, 69) and status 3
-DEBUG (3): [0:14:39.916137647] INFO --- received position: (33269, 69) and status: 3
-DEBUG (4): [0:14:49.671875010] INFO --- sent position (55053, 51309) and status 2
-DEBUG (3): [0:14:49.681884717] INFO --- received position: (55053, 51309) and status: 2
-DEBUG (4): [0:14:59.437500010] INFO --- sent position (9393, 63279) and status 3
-DEBUG (3): [0:14:59.447174025] INFO --- received position: (9393, 63279) and status: 3
-DEBUG (1): [0:14:59.447265635] MISSING ALARM --- child bracelet missing, last known position: (9343, 9863)
-DEBUG (4): [0:15:9.203125010] INFO --- sent position (45627, 31115) and status 3
-DEBUG (3): [0:15:9.206405630] INFO --- received position: (45627, 31115) and status: 3
-DEBUG (4): [0:15:18.968750010] INFO --- sent position (27543, 41336) and status 4
-DEBUG (3): [0:15:18.974243142] INFO --- received position: (27543, 41336) and status: 4
-DEBUG (4): [0:15:28.734375010] INFO --- sent position (27362, 23141) and status 3
-DEBUG (3): [0:15:28.737716665] INFO --- received position: (27362, 23141) and status: 3
-DEBUG (4): [0:15:38.500000010] INFO --- sent position (60501, 50924) and status 3
-DEBUG (3): [0:15:38.508697469] INFO --- received position: (60501, 50924) and status: 3
-DEBUG (4): [0:15:48.265625010] INFO --- sent position (32509, 5215) and status 4
-DEBUG (3): [0:15:48.271911594] INFO --- received position: (32509, 5215) and status: 4
-DEBUG (4): [0:15:58.031250010] INFO --- sent position (44333, 39201) and status 3
-DEBUG (1): [0:15:58.041015635] MISSING ALARM --- child bracelet missing, last known position: (9343, 9863)
-DEBUG (3): [0:15:58.041946358] INFO --- received position: (44333, 39201) and status: 3
-DEBUG (4): [0:16:7.796875010] INFO --- sent position (58444, 17563) and status 4
-DEBUG (3): [0:16:7.799789421] INFO --- received position: (58444, 17563) and status: 4
-DEBUG (4): [0:16:17.562500010] INFO --- sent position (6901, 54840) and status 2
-DEBUG (3): [0:16:17.573974552] INFO --- received position: (6901, 54840) and status: 2
-DEBUG (4): [0:16:27.328125010] INFO --- sent position (27676, 49627) and status 5
-DEBUG (3): [0:16:27.330764765] FALLING ALARM --- child is falling at position (27676, 49627)
-DEBUG (4): [0:16:37.093750010] INFO --- sent position (10217, 15608) and status 4
-DEBUG (3): [0:16:37.097412098] INFO --- received position: (10217, 15608) and status: 4
-DEBUG (4): [0:16:46.859375010] INFO --- sent position (61939, 37218) and status 2
-DEBUG (3): [0:16:46.864852883] INFO --- received position: (61939, 37218) and status: 2
-DEBUG (4): [0:16:56.625000010] INFO --- sent position (56850, 38474) and status 4
+DEBUG (4): [0:0:59.594726572] INFO --- sent position (5221, 7542) and status 5
+DEBUG (3): [0:0:59.605407662] FALLING ALARM --- child is falling at position (5221, 7542)
+DEBUG (4): [0:1:9.360351572] INFO --- sent position (53753, 28324) and status 4
+DEBUG (3): [0:1:9.368911703] INFO --- received position: (53753, 28324) and status: 4
+DEBUG (4): [0:1:19.125976572] INFO --- sent position (55128, 61155) and status 4
+DEBUG (3): [0:1:19.132873504] INFO --- received position: (55128, 61155) and status: 4
+DEBUG (4): [0:1:28.891601572] INFO --- sent position (64444, 715) and status 2
+DEBUG (3): [0:1:28.898559539] INFO --- received position: (64444, 715) and status: 2
+DEBUG (4): [0:1:38.657226572] INFO --- sent position (5425, 21930) and status 3
+DEBUG (3): [0:1:38.664337126] INFO --- received position: (5425, 21930) and status: 3
+DEBUG (4): [0:1:48.422851572] INFO --- sent position (63233, 34525) and status 3
+DEBUG (3): [0:1:48.426879869] INFO --- received position: (63233, 34525) and status: 3
+DEBUG (1): [0:1:48.427734385] MISSING ALARM --- child bracelet missing, last known position: (14246, 37798)
+DEBUG (4): [0:1:58.188476572] INFO --- sent position (38399, 42989) and status 2
+DEBUG (3): [0:1:58.191055292] INFO --- received position: (38399, 42989) and status: 2
+DEBUG (4): [0:2:7.954101572] INFO --- sent position (32962, 19268) and status 2
+DEBUG (3): [0:2:7.961349455] INFO --- received position: (32962, 19268) and status: 2
+DEBUG (4): [0:2:17.719726572] INFO --- sent position (5754, 55772) and status 4
+DEBUG (3): [0:2:17.727279629] INFO --- received position: (5754, 55772) and status: 4
+DEBUG (4): [0:2:27.485351572] INFO --- sent position (44568, 53739) and status 2
+DEBUG (3): [0:2:27.493942220] INFO --- received position: (44568, 53739) and status: 2
+DEBUG (4): [0:2:37.250976572] INFO --- sent position (56037, 2111) and status 5
+DEBUG (3): [0:2:37.253585810] FALLING ALARM --- child is falling at position (56037, 2111)
+DEBUG (4): [0:2:47.016601572] INFO --- sent position (52491, 42251) and status 4
+DEBUG (1): [0:2:47.021484385] MISSING ALARM --- child bracelet missing, last known position: (14246, 37798)
+DEBUG (3): [0:2:47.027282662] INFO --- received position: (52491, 42251) and status: 4
+DEBUG (4): [0:2:56.782226572] INFO --- sent position (37511, 63125) and status 3
+DEBUG (3): [0:2:56.785614003] INFO --- received position: (37511, 63125) and status: 3
+DEBUG (4): [0:3:6.547851572] INFO --- sent position (63845, 35370) and status 4
+DEBUG (3): [0:3:6.559356632] INFO --- received position: (63845, 35370) and status: 4
+DEBUG (4): [0:3:16.313476572] INFO --- sent position (392, 42950) and status 2
+DEBUG (3): [0:3:16.319656346] INFO --- received position: (392, 42950) and status: 2
+DEBUG (4): [0:3:26.079101572] INFO --- sent position (23766, 2036) and status 2
+DEBUG (3): [0:3:26.087417564] INFO --- received position: (23766, 2036) and status: 2
+DEBUG (4): [0:3:35.844726572] INFO --- sent position (23401, 29073) and status 5
+DEBUG (3): [0:3:35.849136336] FALLING ALARM --- child is falling at position (23401, 29073)
+DEBUG (4): [0:3:45.610351572] INFO --- sent position (7606, 44400) and status 4
+DEBUG (1): [0:3:45.615234385] MISSING ALARM --- child bracelet missing, last known position: (14246, 37798)
+DEBUG (4): [0:3:45.622039736] Packet in phase 2 not acked, retrying...
+DEBUG (4): [0:3:45.622039736] INFO --- sent position (7606, 44400) and status 4
+DEBUG (3): [0:3:45.631744269] INFO --- received position: (7606, 44400) and status: 4
+DEBUG (4): [0:3:55.375976572] INFO --- sent position (3177, 55732) and status 2
+DEBUG (3): [0:3:55.385665847] INFO --- received position: (3177, 55732) and status: 2
+DEBUG (4): [0:4:5.141601572] INFO --- sent position (5384, 55685) and status 5
+DEBUG (3): [0:4:5.151458692] FALLING ALARM --- child is falling at position (5384, 55685)
+DEBUG (4): [0:4:14.907226572] INFO --- sent position (52688, 10199) and status 3
+DEBUG (3): [0:4:14.917175244] INFO --- received position: (52688, 10199) and status: 3
+DEBUG (4): [0:4:24.672851572] INFO --- sent position (32552, 20508) and status 2
+DEBUG (3): [0:4:24.682754468] INFO --- received position: (32552, 20508) and status: 2
+DEBUG (4): [0:4:34.438476572] INFO --- sent position (56566, 50081) and status 3
+DEBUG (3): [0:4:34.448028518] INFO --- received position: (56566, 50081) and status: 3
+DEBUG (4): [0:4:34.448196364] Packet in phase 2 not acked, retrying...
+DEBUG (4): [0:4:34.448196364] INFO --- sent position (56566, 50081) and status 3
+DEBUG (3): [0:4:34.457916156] INFO --- received position: (56566, 50081) and status: 3
+DEBUG (4): [0:4:44.204101572] INFO --- sent position (39981, 25794) and status 3
+DEBUG (1): [0:4:44.208984385] MISSING ALARM --- child bracelet missing, last known position: (14246, 37798)
+DEBUG (3): [0:4:44.212219200] INFO --- received position: (39981, 25794) and status: 3
+DEBUG (4): [0:4:53.969726572] INFO --- sent position (32887, 11723) and status 4
+DEBUG (3): [0:4:53.973785386] INFO --- received position: (32887, 11723) and status: 4
+DEBUG (4): [0:5:3.735351572] INFO --- sent position (42525, 50384) and status 4
+DEBUG (3): [0:5:3.746871891] INFO --- received position: (42525, 50384) and status: 4
+DEBUG (4): [0:5:13.500976572] INFO --- sent position (50028, 3234) and status 2
+DEBUG (3): [0:5:13.509445151] INFO --- received position: (50028, 3234) and status: 2
+DEBUG (4): [0:5:23.266601572] INFO --- sent position (20542, 6761) and status 4
+DEBUG (3): [0:5:23.269897451] INFO --- received position: (20542, 6761) and status: 4
+DEBUG (4): [0:5:33.032226572] INFO --- sent position (16634, 57891) and status 5
+DEBUG (3): [0:5:33.040908772] FALLING ALARM --- child is falling at position (16634, 57891)
+DEBUG (4): [0:5:42.797851572] INFO --- sent position (57340, 13828) and status 2
+DEBUG (1): [0:5:42.802734385] MISSING ALARM --- child bracelet missing, last known position: (14246, 37798)
+DEBUG (3): [0:5:42.808486886] INFO --- received position: (57340, 13828) and status: 2
+DEBUG (4): [0:5:52.563476572] INFO --- sent position (60568, 10113) and status 2
+DEBUG (3): [0:5:52.574432319] INFO --- received position: (60568, 10113) and status: 2
+DEBUG (4): [0:6:2.329101572] INFO --- sent position (17168, 64402) and status 2
+DEBUG (3): [0:6:2.333953839] INFO --- received position: (17168, 64402) and status: 2
+DEBUG (4): [0:6:12.094726572] INFO --- sent position (17558, 1159) and status 3
+DEBUG (3): [0:6:12.105850164] INFO --- received position: (17558, 1159) and status: 3
+DEBUG (4): [0:6:21.860351572] INFO --- sent position (20178, 50470) and status 2
+DEBUG (3): [0:6:21.865951515] INFO --- received position: (20178, 50470) and status: 2
+DEBUG (4): [0:6:31.625976572] INFO --- sent position (13644, 5315) and status 4
+DEBUG (3): [0:6:31.630615217] INFO --- received position: (13644, 5315) and status: 4
+DEBUG (4): [0:6:41.391601572] INFO --- sent position (56148, 34218) and status 2
+DEBUG (1): [0:6:41.396484385] MISSING ALARM --- child bracelet missing, last known position: (14246, 37798)
+DEBUG (3): [0:6:41.399139370] INFO --- received position: (56148, 34218) and status: 2
+DEBUG (4): [0:6:51.157226572] INFO --- sent position (52970, 26967) and status 4
+DEBUG (3): [0:6:51.161087023] INFO --- received position: (52970, 26967) and status: 4
+DEBUG (4): [0:7:0.922851572] INFO --- sent position (6129, 64635) and status 4
+DEBUG (3): [0:7:0.932571364] INFO --- received position: (6129, 64635) and status: 4
+DEBUG (4): [0:7:10.688476572] INFO --- sent position (44411, 36050) and status 3
+DEBUG (3): [0:7:10.691848745] INFO --- received position: (44411, 36050) and status: 3
+DEBUG (4): [0:7:20.454101572] INFO --- sent position (58730, 50047) and status 3
+DEBUG (3): [0:7:20.463195757] INFO --- received position: (58730, 50047) and status: 3
+DEBUG (4): [0:7:30.219726572] INFO --- sent position (60242, 37405) and status 2
+DEBUG (3): [0:7:30.223327625] INFO --- received position: (60242, 37405) and status: 2
+DEBUG (4): [0:7:39.985351572] INFO --- sent position (43013, 7605) and status 2
+DEBUG (1): [0:7:39.990234385] MISSING ALARM --- child bracelet missing, last known position: (14246, 37798)
+DEBUG (3): [0:7:39.996078438] INFO --- received position: (43013, 7605) and status: 2
+DEBUG (4): [0:7:49.750976572] INFO --- sent position (11935, 64444) and status 4
+DEBUG (3): [0:7:49.758789026] INFO --- received position: (11935, 64444) and status: 4
+DEBUG (4): [0:7:59.516601572] INFO --- sent position (46340, 21960) and status 3
+DEBUG (3): [0:7:59.519729606] INFO --- received position: (46340, 21960) and status: 3
+DEBUG (4): [0:8:9.282226572] INFO --- sent position (65525, 25588) and status 2
+DEBUG (3): [0:8:9.284545894] INFO --- received position: (65525, 25588) and status: 2
+DEBUG (4): [0:8:19.047851572] INFO --- sent position (49926, 54254) and status 4
+DEBUG (3): [0:8:19.054138156] INFO --- received position: (49926, 54254) and status: 4
+DEBUG (4): [0:8:28.813476572] INFO --- sent position (14387, 56791) and status 2
+DEBUG (3): [0:8:28.816635123] INFO --- received position: (14387, 56791) and status: 2
+DEBUG (4): [0:8:38.579101572] INFO --- sent position (34085, 27067) and status 3
+DEBUG (3): [0:8:38.583374008] INFO --- received position: (34085, 27067) and status: 3
+DEBUG (1): [0:8:38.583984385] MISSING ALARM --- child bracelet missing, last known position: (14246, 37798)
+DEBUG (4): [0:8:48.344726572] INFO --- sent position (31434, 25800) and status 2
+DEBUG (3): [0:8:48.349105819] INFO --- received position: (31434, 25800) and status: 2
+DEBUG (4): [0:8:58.110351572] INFO --- sent position (15306, 35051) and status 3
+DEBUG (3): [0:8:58.114150988] INFO --- received position: (15306, 35051) and status: 3
+DEBUG (4): [0:9:7.875976572] INFO --- sent position (12194, 22030) and status 3
+DEBUG (3): [0:9:7.883453335] INFO --- received position: (12194, 22030) and status: 3
+DEBUG (4): [0:9:17.641601572] INFO --- sent position (15338, 45072) and status 3
+DEBUG (3): [0:9:17.652648871] INFO --- received position: (15338, 45072) and status: 3
+DEBUG (4): [0:9:27.407226572] INFO --- sent position (41230, 47679) and status 4
+DEBUG (3): [0:9:27.416198688] INFO --- received position: (41230, 47679) and status: 4
+DEBUG (4): [0:9:37.172851572] INFO --- sent position (3572, 9599) and status 3
+DEBUG (1): [0:9:37.177734385] MISSING ALARM --- child bracelet missing, last known position: (14246, 37798)
+DEBUG (3): [0:9:37.182693434] INFO --- received position: (3572, 9599) and status: 3
+DEBUG (4): [0:9:46.938476572] INFO --- sent position (20899, 53422) and status 2
+DEBUG (3): [0:9:46.948074294] INFO --- received position: (20899, 53422) and status: 2
+DEBUG (4): [0:9:46.948242140] Packet in phase 2 not acked, retrying...
+DEBUG (4): [0:9:46.948242140] INFO --- sent position (20899, 53422) and status 2
+DEBUG (3): [0:9:46.957168480] INFO --- received position: (20899, 53422) and status: 2
+DEBUG (4): [0:9:56.704101572] INFO --- sent position (2350, 56343) and status 3
+DEBUG (3): [0:9:56.709747291] INFO --- received position: (2350, 56343) and status: 3
+DEBUG (4): [0:10:6.469726572] INFO --- sent position (34979, 45198) and status 3
+DEBUG (3): [0:10:6.477722131] INFO --- received position: (34979, 45198) and status: 3
+DEBUG (4): [0:10:16.235351572] INFO --- sent position (27099, 49917) and status 4
+DEBUG (3): [0:10:16.240386943] INFO --- received position: (27099, 49917) and status: 4
+DEBUG (4): [0:10:26.000976572] INFO --- sent position (18056, 40626) and status 3
+DEBUG (3): [0:10:26.008209196] INFO --- received position: (18056, 40626) and status: 3
+DEBUG (4): [0:10:35.766601572] INFO --- sent position (33430, 17915) and status 4
+DEBUG (1): [0:10:35.771484385] MISSING ALARM --- child bracelet missing, last known position: (14246, 37798)
+DEBUG (3): [0:10:35.771911600] INFO --- received position: (33430, 17915) and status: 4
+DEBUG (4): [0:10:45.532226572] INFO --- sent position (14248, 2822) and status 4
+DEBUG (4): [0:10:45.541366533] Packet in phase 2 not acked, retrying...
+DEBUG (4): [0:10:45.541366533] INFO --- sent position (14248, 2822) and status 4
+DEBUG (3): [0:10:45.545120174] INFO --- received position: (14248, 2822) and status: 4
+DEBUG (4): [0:10:55.297851572] INFO --- sent position (57653, 27516) and status 3
+DEBUG (3): [0:10:55.309127751] INFO --- received position: (57653, 27516) and status: 3
+DEBUG (4): [0:11:5.063476572] INFO --- sent position (35214, 60206) and status 4
+DEBUG (3): [0:11:5.067413317] INFO --- received position: (35214, 60206) and status: 4
+DEBUG (4): [0:11:14.829101572] INFO --- sent position (1472, 37140) and status 3
+DEBUG (3): [0:11:14.834823585] INFO --- received position: (1472, 37140) and status: 3
+DEBUG (4): [0:11:24.594726572] INFO --- sent position (63943, 40289) and status 2
+DEBUG (3): [0:11:24.605606025] INFO --- received position: (63943, 40289) and status: 2
+DEBUG (4): [0:11:34.360351572] INFO --- sent position (16663, 34563) and status 4
+DEBUG (1): [0:11:34.365234385] MISSING ALARM --- child bracelet missing, last known position: (14246, 37798)
+DEBUG (3): [0:11:34.365722634] INFO --- received position: (16663, 34563) and status: 4
+DEBUG (4): [0:11:44.125976572] INFO --- sent position (56357, 11194) and status 4
+DEBUG (3): [0:11:44.129226675] INFO --- received position: (56357, 11194) and status: 4
+DEBUG (4): [0:11:53.891601572] INFO --- sent position (1204, 50600) and status 4
+DEBUG (3): [0:11:53.896011336] INFO --- received position: (1204, 50600) and status: 4
+DEBUG (4): [0:12:3.657226572] INFO --- sent position (6517, 22167) and status 2
+DEBUG (3): [0:12:3.661270128] INFO --- received position: (6517, 22167) and status: 2
+DEBUG (4): [0:12:13.422851572] INFO --- sent position (52217, 23864) and status 4
+DEBUG (3): [0:12:13.430389370] INFO --- received position: (52217, 23864) and status: 4
+DEBUG (4): [0:12:23.188476572] INFO --- sent position (29309, 35261) and status 3
+DEBUG (3): [0:12:23.198791453] INFO --- received position: (29309, 35261) and status: 3
+DEBUG (4): [0:12:32.954101572] INFO --- sent position (3260, 19493) and status 4
+DEBUG (1): [0:12:32.958984385] MISSING ALARM --- child bracelet missing, last known position: (14246, 37798)
+DEBUG (3): [0:12:32.964248608] INFO --- received position: (3260, 19493) and status: 4
+DEBUG (4): [0:12:42.719726572] INFO --- sent position (43284, 32152) and status 3
+DEBUG (3): [0:12:42.724868754] INFO --- received position: (43284, 32152) and status: 3
+DEBUG (4): [0:12:52.485351572] INFO --- sent position (60553, 9957) and status 2
+DEBUG (3): [0:12:52.494140583] INFO --- received position: (60553, 9957) and status: 2
+DEBUG (4): [0:13:2.250976572] INFO --- sent position (31341, 39222) and status 3
+DEBUG (3): [0:13:2.257461520] INFO --- received position: (31341, 39222) and status: 3
+DEBUG (4): [0:13:12.016601572] INFO --- sent position (41604, 41693) and status 4
+DEBUG (3): [0:13:12.027465766] INFO --- received position: (41604, 41693) and status: 4
+DEBUG (4): [0:13:21.782226572] INFO --- sent position (34238, 32544) and status 3
+DEBUG (3): [0:13:21.786071764] INFO --- received position: (34238, 32544) and status: 3
+DEBUG (4): [0:13:31.547851572] INFO --- sent position (17864, 36564) and status 2
+DEBUG (3): [0:13:31.550506586] INFO --- received position: (17864, 36564) and status: 2
+DEBUG (1): [0:13:31.552734385] MISSING ALARM --- child bracelet missing, last known position: (14246, 37798)
+DEBUG (4): [0:13:41.313476572] INFO --- sent position (55306, 32228) and status 4
+DEBUG (3): [0:13:41.325042667] INFO --- received position: (55306, 32228) and status: 4
+DEBUG (4): [0:13:51.079101572] INFO --- sent position (65163, 37012) and status 3
+DEBUG (3): [0:13:51.086227385] INFO --- received position: (65163, 37012) and status: 3
+DEBUG (4): [0:14:0.844726572] INFO --- sent position (55943, 56034) and status 3
+DEBUG (3): [0:14:0.848632799] INFO --- received position: (55943, 56034) and status: 3
+DEBUG (4): [0:14:10.610351572] INFO --- sent position (6976, 2170) and status 2
+DEBUG (3): [0:14:10.617019624] INFO --- received position: (6976, 2170) and status: 2
+DEBUG (4): [0:14:20.375976572] INFO --- sent position (33479, 57405) and status 2
+DEBUG (3): [0:14:20.382385226] INFO --- received position: (33479, 57405) and status: 2
+DEBUG (4): [0:14:30.141601572] INFO --- sent position (36384, 3254) and status 5
+DEBUG (1): [0:14:30.146484385] MISSING ALARM --- child bracelet missing, last known position: (14246, 37798)
+DEBUG (3): [0:14:30.148361176] FALLING ALARM --- child is falling at position (36384, 3254)
+DEBUG (4): [0:14:39.907226572] INFO --- sent position (33269, 69) and status 3
+DEBUG (4): [0:14:39.913345311] Packet in phase 2 not acked, retrying...
+DEBUG (4): [0:14:39.913345311] INFO --- sent position (33269, 69) and status 3
+DEBUG (3): [0:14:39.922103805] INFO --- received position: (33269, 69) and status: 3
+DEBUG (4): [0:14:49.672851572] INFO --- sent position (55053, 51309) and status 2
+DEBUG (3): [0:14:49.675292964] INFO --- received position: (55053, 51309) and status: 2
+DEBUG (4): [0:14:59.438476572] INFO --- sent position (9393, 63279) and status 3
+DEBUG (3): [0:14:59.445236176] INFO --- received position: (9393, 63279) and status: 3
+DEBUG (4): [0:15:9.204101572] INFO --- sent position (45627, 31115) and status 3
+DEBUG (3): [0:15:9.214004468] INFO --- received position: (45627, 31115) and status: 3
+DEBUG (4): [0:15:18.969726572] INFO --- sent position (27543, 41336) and status 4
+DEBUG (3): [0:15:18.974395734] INFO --- received position: (27543, 41336) and status: 4
+DEBUG (4): [0:15:28.735351572] INFO --- sent position (27362, 23141) and status 3
+DEBUG (1): [0:15:28.740234385] MISSING ALARM --- child bracelet missing, last known position: (14246, 37798)
+DEBUG (3): [0:15:28.746292060] INFO --- received position: (27362, 23141) and status: 3
+DEBUG (4): [0:15:38.500976572] INFO --- sent position (60501, 50924) and status 3
+DEBUG (3): [0:15:38.509017907] INFO --- received position: (60501, 50924) and status: 3
+DEBUG (4): [0:15:48.266601572] INFO --- sent position (32509, 5215) and status 4
+DEBUG (3): [0:15:48.269882193] INFO --- received position: (32509, 5215) and status: 4
+DEBUG (4): [0:15:58.032226572] INFO --- sent position (44333, 39201) and status 3
+DEBUG (3): [0:15:58.035018914] INFO --- received position: (44333, 39201) and status: 3
+DEBUG (4): [0:16:7.797851572] INFO --- sent position (58444, 17563) and status 4
+DEBUG (3): [0:16:7.807144120] INFO --- received position: (58444, 17563) and status: 4
+DEBUG (4): [0:16:17.563476572] INFO --- sent position (6901, 54840) and status 2
+DEBUG (3): [0:16:17.565917964] INFO --- received position: (6901, 54840) and status: 2
+DEBUG (4): [0:16:27.329101572] INFO --- sent position (27676, 49627) and status 5
+DEBUG (3): [0:16:27.333450302] FALLING ALARM --- child is falling at position (27676, 49627)
+DEBUG (1): [0:16:27.333984385] MISSING ALARM --- child bracelet missing, last known position: (14246, 37798)
+DEBUG (4): [0:16:37.094726572] INFO --- sent position (10217, 15608) and status 4
+DEBUG (3): [0:16:37.105087229] INFO --- received position: (10217, 15608) and status: 4
+DEBUG (4): [0:16:46.860351572] INFO --- sent position (61939, 37218) and status 2
 
 
 
